@@ -1,0 +1,17 @@
+# Build and Release Folders
+.dist/
+
+# Other files and folders
+.settings/
+node_modules
+coverage
+.cache/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+# ts配置
+tsconfig.json
