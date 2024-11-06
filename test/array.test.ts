@@ -8,11 +8,41 @@ import { uniqueArray, getFirst, getLast } from "../libs/array";
  */
 test("uniqueArray test", () => {
   // 测试空值
-  expect(uniqueArray()).toEqual([]);
+  expect(uniqueArray([])).toEqual([]);
   // 测试正常数据
   expect(uniqueArray(["1", "2", "3", "3"])).toEqual(["1", "2", "3"]);
   // 测试不重复数据
   expect(uniqueArray(["1", "2", "3"])).toEqual(["1", "2", "3"]);
+  // 测试复杂数组类型-正常数据
+  expect(
+    uniqueArray(
+      [
+        { a: 1, b: 2, c: 3 },
+        { a: 1, b: 3, c: 4 },
+        { a: 2, b: 4, c: 5 },
+        { a: 3, b: 4, c: 5 }
+      ],
+      "a"
+    )
+  ).toEqual([
+    { a: 1, b: 2, c: 3 },
+    { a: 2, b: 4, c: 5 },
+    { a: 3, b: 4, c: 5 }
+  ]);
+  // 测试负载数据，不传第二个参数的情况
+  expect(
+    uniqueArray([
+      { a: 1, b: 2, c: 3 },
+      { a: 1, b: 3, c: 4 },
+      { a: 2, b: 4, c: 5 },
+      { a: 3, b: 4, c: 5 }
+    ])
+  ).toEqual([
+    { a: 1, b: 2, c: 3 },
+    { a: 1, b: 3, c: 4 },
+    { a: 2, b: 4, c: 5 },
+    { a: 3, b: 4, c: 5 }
+  ]);
 });
 
 /*
