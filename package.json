@@ -6,6 +6,7 @@
   "keywords": [
     "utils"
   ],
+  "types": "types/index.d.ts",
   "devDependencies": {
     "@eslint/js": "^9.5.0",
     "@types/jest": "^29.5.12",
@@ -24,7 +25,7 @@
     "vitepress": "^1.2.3"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && tsc -p tsconfig.build.json",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "docs:dev": "vitepress dev doc",

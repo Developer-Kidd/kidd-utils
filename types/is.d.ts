@@ -1,8 +1,8 @@
-export type isNumber = (val: unknown) => boolean;
-export type isString = (val: unknown) => boolean;
-export type isNotEmpty = (val: unknown) => boolean;
-export type isMobile = (val: string | number) => boolean;
-export type isFixedPhone = (val: string | number) => boolean;
-export type isPositiveInteger = (val: string | number) => boolean;
-export type isIdCardNo = (val: string) => boolean;
-export type isEmoji = (val: string) => boolean;
+export declare const isNumber: (val: unknown) => boolean;
+export declare const isString: (val: unknown) => boolean;
+export declare const isNotEmpty: (val: unknown) => boolean;
+export declare const isMobile: (val: string | number) => boolean;
+export declare const isFixedPhone: (val: string | number) => boolean;
+export declare const isPositiveInteger: (val: string | number) => boolean;
+export declare const isIdCardNo: (val: string) => boolean;
+export declare const isEmoji: (val: string) => boolean;
