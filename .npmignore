@@ -1,0 +1,4 @@
+# npm publish忽略文件
+./doc
+./playground
+./vscode

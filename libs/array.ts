@@ -2,21 +2,35 @@
  * 数组相关处理方法
  * author: zhijie
  */
-import { PrimitiveType } from "../types/index";
 
 /*
- * 数组去重(仅能判断基本类型)
+ * 数组去重
+ * @arr: 需要去重的数组 @valueField: 用于去重的字段-数组里面内容是对象的则必填
  */
-export const uniqueArray = (arr: PrimitiveType[] = []): PrimitiveType[] => {
-  const res: PrimitiveType[] = [];
+export const uniqueArray = (arr: unknown[], valueField?: string): unknown[] => {
+  const res: unknown[] = [];
   if (!Array.isArray(arr) || !arr || !arr.length) return res;
   const map = new Map(); // 记录已有数据
-  arr.forEach(item => {
-    if (!map.has(item)) {
-      res.push(item);
-      map.set(item, true);
+
+  for (let i = 0, len = arr.length; i < len; i++) {
+    const item: unknown = arr[i];
+    // 对象类型处理
+    if (item instanceof Object) {
+      if (!valueField) return arr; // 对象但是不存在用于判断的字符直接返回
+      if (!map.has((item as Record<string, unknown>)[valueField])) {
+        res.push(item);
+        map.set((item as Record<string, unknown>)[valueField], true);
+      }
     }
-  });
+    // 普通对象处理
+    else {
+      if (!map.has(item)) {
+        res.push(item);
+        map.set(item, true);
+      }
+    }
+  }
+
   return res;
 };
 

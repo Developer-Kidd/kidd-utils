@@ -2,12 +2,13 @@
  * 常用的工具类函数
  * author: zhijie
  */
-import { Options } from "../types/index";
+
+type Options = { label: unknown; value: unknown };
 
 /*
  * 转换成Option类型数组
  */
-export const transToOptions = <T>(arr: T[], labelField: string, valueField: string): Options[] => {
+export const transToOptions = (arr: any[], labelField: string, valueField: string): Options[] => {
   if (!arr || !arr.length) return [];
   return (
     arr.map(item => {
