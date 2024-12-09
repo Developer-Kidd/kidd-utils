@@ -1,7 +1,7 @@
 /*
  * array 模块测试用例
  */
-import { uniqueArray, getFirst, getLast } from "../libs/array";
+import { uniqueArray, getFirst, getLast, transToObj } from "../libs/array";
 
 /*
  * uniqueArray 测试用例
@@ -71,4 +71,28 @@ test("getLast test", () => {
   expect(getLast(["test", "test2", "test3"])).toEqual("test3");
   // 测试不同类型
   expect(getLast([{ a: 1, b: 2 }, "test2", { a: 1, b: 2, c: 3 }])).toEqual({ a: 1, b: 2, c: 3 });
+});
+
+/*
+ * transToObj 测试用例
+ */
+test("transToObj test", () => {
+  // 测试空值
+  expect(transToObj([])).toEqual({});
+  // 测试正常数据-默认值
+  expect(transToObj(["a", "b", "c"])).toEqual({ a: true, b: true, c: true });
+  // 测试正常数据- 第二个参数测试
+  expect(transToObj(["a", "b", "c"], "test")).toEqual({ a: "test", b: "test", c: "test" });
+  // 测试正常数据- 第三个参数测试
+  expect(
+    transToObj(
+      [
+        { a: 1, value: "code1" },
+        { b: 2, value: "code2" },
+        { c: 3, value: "code3" }
+      ],
+      true,
+      "value"
+    )
+  ).toEqual({ code1: true, code2: true, code3: true });
 });
