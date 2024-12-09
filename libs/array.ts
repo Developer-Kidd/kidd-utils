@@ -57,3 +57,19 @@ export const getLast = (arr: unknown[] = [], defaultVal?: unknown): unknown => {
   }
   return res;
 };
+
+/*
+ * 数组转换成对象
+ * @arr: 需要转换的数组 @defaultVal:默认值 @valueField: 如果arr是对象类型，则需要传入此字段作为结果对象的key
+ */
+export const transToObj = (arr: unknown[] = [], defaultVal: unknown = true, valueField?: string): Record<string, unknown> => {
+  const obj: Record<string, unknown> = {}; //结果对象
+  if (!arr) return obj;
+
+  arr.forEach(item => {
+    const key: string = valueField ? (item as Record<string, string>)[valueField] : (item as string);
+    obj[key] = defaultVal;
+  });
+
+  return obj;
+};
