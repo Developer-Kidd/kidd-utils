@@ -8,7 +8,7 @@ type Options = { label: unknown; value: unknown };
 /*
  * 转换成Option类型数组
  */
-export const transToOptions = (arr: any[], labelField: string, valueField: string): Options[] => {
+export const transToOptions = (arr: any[], labelField: string = "label", valueField: string = "value"): Options[] => {
   if (!arr || !arr.length) return [];
   return (
     arr.map(item => {
