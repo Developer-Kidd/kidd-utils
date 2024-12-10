@@ -19,6 +19,20 @@ test("transToOptions test", () => {
     { label: 1, value: 2 },
     { label: 2, value: 3 }
   ]);
+  // 测试正常值-不传参数
+  expect(
+    transToOptions(
+      [
+        { a: 1, b: 2 },
+        { a: 2, b: 3 }
+      ],
+      "a",
+      "b"
+    )
+  ).toEqual([
+    { label: 1, value: 2 },
+    { label: 2, value: 3 }
+  ]);
 });
 
 /*
