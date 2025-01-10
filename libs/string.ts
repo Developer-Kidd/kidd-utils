@@ -20,3 +20,12 @@ export const desensitizeStr = (str: string, start: number, end: number, replaceC
 
   return visibleStart + hiddenPart + visibleEnd;
 };
+
+/*
+ * 数字字符串转换为千分位字符串
+ * str:需要处理的的数字或字符串
+ */
+export const formatWithCommas = (str: string | number): string => {
+  if (!str || isNaN(Number(str))) return str.toString();
+  return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};

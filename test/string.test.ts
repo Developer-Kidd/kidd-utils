@@ -1,7 +1,7 @@
 /*
  * libs-test 模块测试用例
  */
-import { desensitizeStr } from "../libs/string";
+import { desensitizeStr, formatWithCommas } from "../libs/string";
 
 /*
  * desensitizeStr 测试用例
@@ -19,4 +19,16 @@ test("desensitizeStr test", () => {
   expect(desensitizeStr("12345678", 1, 3)).toEqual("1***5678");
   // 测试正常情况-第四个参数更改
   expect(desensitizeStr("12345678", 1, 3, "?")).toEqual("1???5678");
+});
+
+/*
+ * formatWithCommas 测试用例
+ */
+test("desensitizeStr test", () => {
+  // 测试空值
+  expect(formatWithCommas("")).toEqual("");
+  // 测试正常值
+  expect(formatWithCommas("12345678")).toEqual("12,345,678");
+  // 测试非数字值
+  expect(formatWithCommas("asdfgh")).toEqual("asdfgh");
 });
