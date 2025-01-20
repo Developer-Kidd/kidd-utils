@@ -24,7 +24,7 @@ test("desensitizeStr test", () => {
 /*
  * formatWithCommas 测试用例
  */
-test("desensitizeStr test", () => {
+test("formatWithCommas test", () => {
   // 测试空值
   expect(formatWithCommas("")).toEqual("");
   // 测试正常值
