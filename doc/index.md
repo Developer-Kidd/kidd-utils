@@ -3,23 +3,21 @@
 layout: home
 
 hero:
-  name: "my-utils"
-  text: "我的工具库文档"
-  tagline: My great project tagline
+  name: "kidd-utils"
+  text: "工具库文档"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 使用指南
+      link: /guide
     - theme: alt
-      text: API Examples
+      text: API示例
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 使用指南
+    details: 快速在项目中使用kidd-utils
+  - title: API 示例
+    details: 查看项目中现有的API示例，快速在项目中上手使用
+  - title: 仓库地址
+    details: 跳转对应github仓库，期待你的贡献
 ---
-
